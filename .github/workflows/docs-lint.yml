@@ -5,18 +5,19 @@ on:
     paths:
       - 'GOVERNANCE.md'
       - 'CONTRIBUTING.md'
+      - '**.md' # Lint all markdown
   pull_request:
     paths:
       - 'GOVERNANCE.md'
       - 'CONTRIBUTING.md'
+      - '**.md'
 
 jobs:
   lint-gov:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Install markdownlint
-        run: |
-          npm install -g markdownlint-cli
+      - uses: actions/checkout@v4
+      - name: Install markdownlint-cli
+        run: npm install -g markdownlint-cli --save-dev
       - name: Run markdownlint
-        run: markdownlint GOVERNANCE.md CONTRIBUTING.md
+        run: markdownlint . --ignore node_modules

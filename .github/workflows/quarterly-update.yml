@@ -8,7 +8,8 @@ jobs:
   update-docs:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Placeholder for quarterly governance review
         run: |
-          echo "Running quarterly governance document update checks"
+          echo "Reminder: Review and update governance documents (GOVERNANCE.md, CONTRIBUTING.md, etc.)"
+          # In a real scenario, this might create an issue or notification
